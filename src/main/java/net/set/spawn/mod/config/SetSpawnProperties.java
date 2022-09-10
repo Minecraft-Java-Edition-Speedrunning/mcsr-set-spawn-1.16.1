@@ -8,7 +8,7 @@ import java.nio.file.Path;
 import java.util.Properties;
 
 public class SetSpawnProperties {
-    public static final String subDir = SetSpawn.MOD_ID + "1_16_5";
+    public static final String subDir = SetSpawn.MOD_ID + "1_16_1";
     public static File configFile;
     public static File globalConfigFile;
     public static Boolean enabled;

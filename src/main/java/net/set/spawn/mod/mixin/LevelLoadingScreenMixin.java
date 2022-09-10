@@ -3,6 +3,7 @@ package net.set.spawn.mod.mixin;
 import net.minecraft.client.gui.screen.LevelLoadingScreen;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.text.StringRenderable;
 import net.minecraft.text.Text;
 import net.set.spawn.mod.Conditionals;
 import net.set.spawn.mod.config.SetSpawnProperties;
@@ -26,7 +27,7 @@ public abstract class LevelLoadingScreenMixin extends Screen {
             int verticalCenter = this.height / 2 - fontCenter;
             int verticalPlacement = verticalCenter + 90;
             int white = 16777215;
-            drawCenteredText(matrices, this.textRenderer, SetSpawnProperties.coordinates, horizontalCenter, verticalPlacement, white);
+            drawCenteredText(matrices, this.textRenderer, StringRenderable.plain(SetSpawnProperties.coordinates), horizontalCenter, verticalPlacement, white);
         }
     }
 }

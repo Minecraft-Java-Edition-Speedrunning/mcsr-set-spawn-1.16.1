@@ -113,11 +113,11 @@ public abstract class MinecraftServerMixin extends ReentrantThreadExecutor<Serve
     }
 
     @Nullable
-    private static BlockPos findOverworldSpawn(ServerWorld world, int x, int z) { // method taken from mc code
+    private static BlockPos findOverworldSpawn(ServerWorld world, int x, int z) {
         BlockPos.Mutable mutable = new BlockPos.Mutable(x, 0, z);
         Biome biome = world.getBiome(mutable);
         boolean bl = world.getDimension().hasCeiling();
-        BlockState blockState = biome.getGenerationSettings().getSurfaceConfig().getTopMaterial();
+        BlockState blockState = biome.getSurfaceConfig().getTopMaterial();
         if (!blockState.getBlock().isIn(BlockTags.VALID_SPAWN)) {
             return null;
         } else {
