@@ -1,40 +1,18 @@
 package net.set.spawn.mod.mixin;
 
-import net.minecraft.block.BlockState;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.ServerTask;
 import net.minecraft.server.WorldGenerationProgressListener;
-import net.minecraft.server.command.CommandOutput;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.tag.BlockTags;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.snooper.SnooperListener;
-import net.minecraft.util.thread.ReentrantThreadExecutor;
-import net.minecraft.world.Heightmap;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.chunk.WorldChunk;
-import net.set.spawn.mod.Conditionals;
-import net.set.spawn.mod.config.SetSpawnProperties;
-import org.apache.logging.log4j.LogManager;
-import org.jetbrains.annotations.Nullable;
+import net.set.spawn.mod.SetSpawn;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(MinecraftServer.class)
-public abstract class MinecraftServerMixin extends ReentrantThreadExecutor<ServerTask> implements SnooperListener, CommandOutput, AutoCloseable {
-
-    @Shadow public abstract ServerWorld getOverworld();
-
-    private static final double[] coordinates = new double[3];
-
-    public MinecraftServerMixin(String string) {
-        super(string);
-    }
+public abstract class MinecraftServerMixin{
 
     @Inject(method = "prepareStartRegion", at = @At(value = "HEAD"))
+<<<<<<< HEAD
     public void validateSpawn(WorldGenerationProgressListener worldGenerationProgressListener, CallbackInfo ci){
         Conditionals.isModActive = false;
         if (properSpawnEditingCircumstances(this.getOverworld())) {
@@ -145,6 +123,11 @@ public abstract class MinecraftServerMixin extends ReentrantThreadExecutor<Serve
                     return null;
                 }
             }
+=======
+    public void setspawnmod_startedWorldGen(WorldGenerationProgressListener worldGenerationProgressListener, CallbackInfo ci){
+        if (SetSpawn.config.isEnabled()) {
+            SetSpawn.shouldModifySpawn = true;
+>>>>>>> 481a698645590d14a0940518797ab911cad38290
         }
     }
 }
