@@ -3,7 +3,7 @@
   "id": "${mod_id}",
   "version": "${version}",
 
-  "name": "Set Spawn 1.16.5",
+  "name": "Set Spawn 1.16.1",
   "description": "Sets the player's spawnpoint in SSG to specified coordinates.",
   "authors": [
     "bdamja"
@@ -22,7 +22,7 @@
   ],
   "depends": {
     "fabricloader": ">=0.12.2",
-    "minecraft": "~1.16"
+    "minecraft": "~1.16.1"
   },
   "breaks": {
     "worldpreview": "*"
