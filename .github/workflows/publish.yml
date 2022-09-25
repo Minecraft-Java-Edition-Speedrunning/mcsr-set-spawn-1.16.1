@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
 
 env:
-  RELEASE_TITLE: "Set Spawn 1.16.5 - build ${{github.run_number}}"
+  RELEASE_TITLE: "Set Spawn 1.16.1 - build ${{github.run_number}}"
   RELEASE_TAG: "v${{github.run_number}}"
   RELEASE_FILE: "build/libs/*-v${{github.run_number}}.jar"
 
